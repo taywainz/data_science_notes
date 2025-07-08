@@ -41,3 +41,27 @@ the RandomForest model will provide good performance. If it does not, it is bett
 Want to predict a category or label? - `RandomForestClassifier`</br>
 Want to predict a number or quantity? - `RandomForestRegressor`
 
+## Python 
+Below will show how to import these along with instantiating the classes.
+> ``` python
+> from sklearn.ensemble import RandomForestClassifier
+> from sklearn.ensemble import RandomForestRegressor
+> from sklearn.metrics import classification_report
+>
+> rfc = RandomForestClassifier() # can pass parameters here
+>
+> # fit using training data
+> rfc.fit(X_train, y_train)
+>
+> # predict y based on X_test
+> y_pred = rfc.predict(X_test)
+>
+> # higher the score, the better
+> rfc.score(X_test, y_test)
+> 
+> # see the precision, recall, f1-score, support along with accuracy, macro avg, and weighted avg
+> print(classification_report(y_test, y_pred)) # see the precision, recall, f1-score, support along w acc
+>
+> # identify most important features
+> features = pd.DataFrame(rf.feature_importances_, index=X.columns) # higher num = more important feature (percentages)
+> ```
